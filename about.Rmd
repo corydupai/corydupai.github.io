@@ -1,0 +1,8 @@
+---
+title: "About"
+author: "Cory DuPai"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: html_document
+---
+
+Why I am awesome. 
