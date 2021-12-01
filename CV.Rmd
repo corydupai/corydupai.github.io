@@ -1,12 +1,23 @@
 ---
-title: "CV"
-author: "Cory DuPai"
-date: "`r format(Sys.time(), '%d %B, %Y')`"
 output: html_document
 ---
 # {.tabset}
 
 ## Education
+
+### University of Texas at Austin
+#### PhD Compuational Biology 2020
+
+* Leveraged R, Python, and Unix systems to maintain and analyze large-scale multi-omics
+datasets on cloud-based platforms via statistical- and machine learning-based methods.
+* Analyzed & interpreted NGS data in the development of novel protein therapeutics.
+* Investigated novel protein interactions in Vibrio cholerae in close collaboration with
+experimental biologists.
+* Led research projects from design to data collection, data evaluation, and publication.
+
+### Boston University
+#### BA Biology 2013 (Cum Laude)
+
 
 ## Experience
 

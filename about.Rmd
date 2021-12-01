@@ -1,8 +1,0 @@
----
-title: "About"
-author: "Cory DuPai"
-date: "`r format(Sys.time(), '%d %B, %Y')`"
-output: html_document
----
-
-Howdy! This is the personal website for Cory DuPai. If you've found yourself here, I assume you're interested in learning more about me. Feel free to poke around.
