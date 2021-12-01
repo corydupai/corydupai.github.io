@@ -1,8 +1,145 @@
 ---
-title: "About"
-author: "Cory DuPai"
-date: "`r format(Sys.time(), '%d %B, %Y')`"
+pagetitle: "Home"
 output: html_document
 ---
 
-Howdy! This is the personal website for Cory DuPai. If you've found yourself here, I assume you're interested in learning more about me. Feel free to poke around and if you have any further questions, drop me a line at corydupai@gmail.com
+<style>
+.fold-btn { float: left; }
+</style>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $(".fold").prepend("<button class=\"fold-btn\">read more</button>");
+  $(".fold").children("code").toggle();
+  $(".fold-btn").on("click", function() {
+    if($(this).text() === "hide") {
+      $(this).text("read more");
+    } else {
+      $(this).text("hide");
+    }
+    $(this).next("code").toggle("linear");
+  })
+});
+</script>
+
+
+```{r setup, include=FALSE, echo=FALSE}
+knitr::opts_chunk$set(echo = FALSE, 
+                      warning = FALSE,
+                      tidy.opts=list(width.cutoff=80), 
+                      tidy=TRUE,
+                      comment=NA)
+library(tidyverse)
+library(plotly)
+library(cowplot)
+library(data.table)
+library(DT)
+library(visNetwork)
+library(viridis)
+library(DT)
+theme_set(theme_cowplot(12))
+
+org_colors <-
+  c("Boston University" = "#CC0000",
+    "Siemens Diagnostics" = "#009999",
+    "Boston Children's Hospital" = "#003087",
+    "University of Texas" = "#BF5700",
+    "Genentech" = "#005596",
+    "Leidos" = "#850F88")
+
+elegen_color <- "#02c796"
+```
+
+## Howdy! 
+This is the personal website for Cory DuPai. If you've found yourself here, I assume you're interested in learning more about me. Feel free to poke around and if you have any further questions, drop me a line at corydupai@gmail.com
+
+<details>
+<Summary> <b>-- Click text like this for more info --</b> </Summary>
+
+Here is a quick rundown of my educational and employment background, feel free to poke around the CV tab for more detail.
+</details>
+
+```{r, out.width = "100%"}
+shorten <- function(subz, xp_dt){
+  xp_dt[, YS := `Year Start` + subz
+      ][, YE := `Year End` - subz
+      ][ YE > YS
+      ][Organization %in% c(
+        "Leidos",
+        "University of Texas"), 
+        `Year End` := `Year End` - 1
+      ][Organization == "Leidos",
+        `Year End` := NA_real_]
+}
+
+sub_range <- seq(0, 4, 0.1)
+
+XP <- fread("Experience.csv")
+
+XP <- lapply(sub_range, shorten, XP) %>% 
+  rbindlist()
+
+XP[, Organization := fct_inorder(Organization)]
+
+XP_plot <- ggplot(XP) +
+   geom_segment( aes(  
+     group = Organization,
+                      text = Event,
+     Start = `Year Start`,
+                       End = `Year End`,
+                       x = YS, xend = YE, 
+                      y = Y, yend = Y,
+                      colour = Organization),
+                 lineend = "round",
+                 size = 5) +
+  ylim(-1, -6.5) +
+  scale_x_continuous(breaks = c(2009,2013,2014,2016,2019,2020,2021,2022),
+                     labels = 
+                       c(as.character(
+                         c(2009,2013,2014,2016,2019,2020,2021)
+                         ),
+                         "Present")) +
+  scale_colour_manual(values = org_colors) +
+  theme(axis.title = element_blank(),
+        axis.text.y = element_blank(), 
+        axis.ticks.y = element_blank())
+
+p <- ggplotly(XP_plot,
+              tooltip = c("text","group","Start","End"))  %>% 
+  layout(legend = list(orientation = 'h',
+                       xanchor = "left",
+                       yanchor = "bottom"))
+
+
+p %>% htmlwidgets::onRender("
+function(el, x) {
+// when hovering over an element, do something
+el.on('plotly_hover', function(d) {
+// extract tooltip text
+let re1 = /.*Year Start: /;
+let re2 = /<br.*/;
+txt = d.points[0].data.text;
+txt = txt.replace(re1,'');
+txt = txt.replace(re2,'');
+// image is stored locally
+image_location = 'image/' + txt + '.jpg';
+// define image to be shown
+var img = {
+// location of image
+source: image_location,
+// top-left corner
+x: 0.3,
+y: 0.75,
+sizex: 0.2,
+sizey: 0.2,
+xref: 'paper',
+yref: 'paper'
+};
+// show image and annotation
+Plotly.relayout(el.id, {
+images: [img]
+});
+})
+}
+")
+```
