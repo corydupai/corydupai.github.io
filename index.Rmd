@@ -1,5 +1,4 @@
 ---
-pagetitle: "Home"
 output: html_document
 ---
 
