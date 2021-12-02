@@ -1,10 +1,14 @@
 ---
 pagetitle: "CV"
 output: html_document
+self_contained: false
 ---
 
 <style>
 .fold-btn { float: left; }
+.br2 {
+    line-height: 8px;
+ }
 
 .column-left{
   float: left;
@@ -70,12 +74,18 @@ elegen_color <- "#02c796"
 ### University of Texas at Austin
 #### PhD Compuational Biology 2020
 
-* Leveraged R, Python, and Unix systems to maintain and analyze large-scale multi-omics
-datasets on cloud-based platforms via statistical- and machine learning-based methods.
+<details>
+
+<Summary> --- </Summary>
+
+* Leveraged R, Python, and Unix systems to maintain and analyze large-scale multi-omics datasets on cloud-based platforms via statistical- and machine learning-based methods.
 * Analyzed & interpreted NGS data in the development of novel protein therapeutics.
-* Investigated novel protein interactions in Vibrio cholerae in close collaboration with
-experimental biologists.
+* Investigated novel protein interactions in Vibrio cholerae in close collaboration with experimental biologists.
 * Led research projects from design to data collection, data evaluation, and publication.
+
+</details>
+
+<br2>
 
 ### Boston University
 #### BA Biology 2013 (Cum Laude)
@@ -93,14 +103,17 @@ experimental biologists.
 
 #### Senior Scientist Bionformatics/Computational Biology
 <details>
-<Summary> <b>-- Details --</b> </Summary>
+
+<Summary> --- </Summary>
 
 * Work with collaborators to collate and analyze multi-omics data via bespoke pipelines that utilize state of the art methodology.
 * Implement machine learning methods to model biologically relevant phenomena. 
 * Aid in the planning and pursuit of large scale research efforts.
 
 </details>
-<br>
+
+<br2>
+
 <div class="column-left">
 ### Genentech, South San Francisco, CA
 </div>
@@ -111,14 +124,17 @@ experimental biologists.
 
 #### Programmer Analyst I
 <details>
-<Summary> <b>-- Details --</b> </Summary>
+
+<Summary> --- </Summary>
 
 * Developed an in-house application and analysis pipeline to process, visualize, and explore transposon sequencing data.
 * Integrated open source and custom software to analyze, summarize, and interpret bacterial NGS data including long read WGS and microbiome data.
 * Worked with bench scientists to facilitate exploratory analysis of microbial datasets through customized interactive R markdown reports.
 
 </details>
-<br>
+
+<br2>
+
 <div class="column-left">
 ### Boston Children’s Hospital, Boston, MA
 </div>
@@ -129,7 +145,8 @@ experimental biologists.
 
 #### Research Assistant II & Lab Manager
 <details>
-<Summary> <b>-- Details --</b> </Summary>
+
+<Summary> --- </Summary>
 
 
 * Studied key metabolic genes involved in pancreatic cancer through cell and mouse-based gene knockdown and overexpression experiments.
@@ -137,7 +154,9 @@ experimental biologists.
 * Managed personnel, equipment, reagents, supplies, procurement, and scheduling.
 
 </details>
-<br>
+
+<br2>
+
 <div class="column-left">
 ### Siemens, Walpole, MA
 </div>
@@ -148,7 +167,8 @@ experimental biologists.
 
 #### Laboratory Assistant II
 <details>
-<Summary> <b>-- Details --</b> </Summary>
+
+<Summary> --- </Summary>
 
 * Designed, implemented, and performed quality testing procedures for immunoassays.
 * Optimized and maintained standard procedures in compliance with FDA guidelines.
@@ -199,7 +219,11 @@ datatable(citez[,c("Publication",
 
 ## Other
 
-- If you'd like to learn about my PhD work, my dissertation is available for your viewing pleasure:
-![](https://youtu.be/kLcIJjivgUU)
-- Poke around <a href="https://github.com/corydupai" target="_blank">my github</a> for some (admittedly out-of-date) coding examples.
 - If you're into bacteria, network visualizations, Shiny apps or all of the above, check out my [co-expression network Shiny App](https://corydupai.shinyapps.io/coexpression_networks/?_ga=2.208486294.545398676.1638211342-339371792.1627078524), developed with Tanvi Ingle.
+- Connect with me on <a href = "https://www.linkedin.com/in/cory-dupai/" target="_blank">Linkedin </a>.
+- Poke around <a href="https://github.com/corydupai" target="_blank">my github</a> for some (admittedly out-of-date) coding examples.
+- My dissertation defense is available for your viewing pleasure:
+
+<br>
+
+<iframe width="640" height="360" src="https://www.youtube.com/embed/kLcIJjivgUU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
