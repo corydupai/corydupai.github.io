@@ -97,10 +97,12 @@ XP_plot <- ggplot(XP) +
                          c(2009,2013,2014,2016,2019,2020,2021,2022)
                          ),
                          "Present")) +
-  scale_colour_manual(values = org_colors) +
+  scale_colour_manual(name = "",
+                      values = org_colors) +
   theme(axis.title = element_blank(),
         axis.text.y = element_blank(), 
-        axis.ticks.y = element_blank()) 
+        axis.ticks.y = element_blank(),
+        legend.title = element_blank()) 
 
 p <- ggplotly(XP_plot,
               tooltip = c("text","group","Start","End"))  %>% 
