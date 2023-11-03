@@ -51,9 +51,7 @@ library(plotly)
 library(cowplot)
 library(data.table)
 library(DT)
-library(visNetwork)
-library(viridis)
-library(DT)
+
 theme_set(theme_cowplot(12))
 
 org_colors <-
@@ -62,9 +60,9 @@ org_colors <-
     "Boston Children's Hospital" = "#003087",
     "University of Texas" = "#BF5700",
     "Genentech" = "#005596",
-    "Leidos" = "#850F88")
+    "Leidos" = "#850F88",
+    "Boundless Bio" = "#BF5700")
 
-elegen_color <- "#02c796"
 ```
 
 # {.tabset}
@@ -94,11 +92,36 @@ elegen_color <- "#02c796"
 ## Experience
 
 <div class="column-left">
+### Boundless Bio, San Diego, CA
+</div>
+
+<div class="column-right">
+### 2022 to Present
+</div>
+
+#### Senior Scientist Bionformatics, Translational Lead
+<details>
+
+<Summary> --- </Summary>
+
+* Develop pipelines, applications, and statistical models for data analysis and visualization.
+* Coordinate with translational scientists to plan, execute, and analyze experiments
+utilizing diverse assays and methodologies in support of early drug development.
+* Support business development efforts via clear visualization and communication of
+scientific concepts to non-scientific stakeholders.
+* Improve departmental efficiency and inter-departmental communication via the
+implementation of novel processes and systems.
+
+</details>
+
+<br2>
+
+<div class="column-left">
 ### Leidos, San Diego, CA
 </div>
 
 <div class="column-right">
-### 2021 to Present
+### 2021 to 2022
 </div>
 
 #### Senior Scientist Bionformatics/Computational Biology
@@ -106,9 +129,9 @@ elegen_color <- "#02c796"
 
 <Summary> --- </Summary>
 
-* Work with collaborators to collate and analyze multi-omics data via bespoke pipelines that utilize state of the art methodology.
-* Implement machine learning methods to model biologically relevant phenomena. 
-* Aid in the planning and pursuit of large scale research efforts.
+* Worked with collaborators to collate and analyze multi-omics data via bespoke pipelines that utilize state of the art methodology.
+* Implemented machine learning methods to model biologically relevant phenomena. 
+* Aided in the planning and pursuit of large-scale, cross-disciplinary research efforts.
 
 </details>
 
@@ -127,7 +150,7 @@ elegen_color <- "#02c796"
 
 <Summary> --- </Summary>
 
-* Developed an in-house application and analysis pipeline to process, visualize, and explore transposon sequencing data.
+* Developed an app and statistical analysis pipeline to process, view, and explore transposon sequencing data in support of early drug development efforts.
 * Integrated open source and custom software to analyze, summarize, and interpret bacterial NGS data including long read WGS and microbiome data.
 * Worked with bench scientists to facilitate exploratory analysis of microbial datasets through customized interactive R markdown reports.
 
@@ -149,36 +172,16 @@ elegen_color <- "#02c796"
 <Summary> --- </Summary>
 
 
-* Studied key metabolic genes involved in pancreatic cancer through cell and mouse-based gene knockdown and overexpression experiments.
+* Studied key metabolic genes involved in pancreatic cancer through cell and mouse-based genetic experiments.
 * Investigated the role of novel post-translational modification sites on enzymatic function.
+* Analyzed and visualized data using GraphPad Prism.
 * Managed personnel, equipment, reagents, supplies, procurement, and scheduling.
 
 </details>
 
-<br2>
-
-<div class="column-left">
-### Siemens, Walpole, MA
-</div>
-
-<div class="column-right">
-### 2013 to 2014
-</div>
-
-#### Laboratory Assistant II
-<details>
-
-<Summary> --- </Summary>
-
-* Designed, implemented, and performed quality testing procedures for immunoassays.
-* Optimized and maintained standard procedures in compliance with FDA guidelines.
-
-</details>
-
-
 ## Publications
 
-```{r}
+```{r pubz}
 
 citez <- 
   fread("citations.csv"
@@ -197,7 +200,7 @@ citez <-
 datatable(citez[,c("Publication",
                     "Journal",
                    "Authors",
-                    "Year")],
+                    "Date")],
           escape = FALSE,
               rownames = FALSE,
               filter = 'top', 

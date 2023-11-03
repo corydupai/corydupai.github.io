@@ -34,9 +34,7 @@ library(plotly)
 library(cowplot)
 library(data.table)
 library(DT)
-library(visNetwork)
-library(viridis)
-library(DT)
+
 theme_set(theme_cowplot(12))
 
 org_colors <-
@@ -45,9 +43,9 @@ org_colors <-
     "Boston Children's Hospital" = "#003087",
     "University of Texas" = "#BF5700",
     "Genentech" = "#005596",
-    "Leidos" = "#850F88")
+    "Leidos" = "#850F88",
+    "Boundless Bio" = "#BF5700")
 
-elegen_color <- "#02c796"
 ```
 
 ## Howdy! 
@@ -65,10 +63,10 @@ shorten <- function(subz, xp_dt){
       ][, YE := `Year End` - subz
       ][ YE > YS
       ][Organization %in% c(
-        "Leidos",
+        "Boundless Bio",
         "University of Texas"), 
         `Year End` := `Year End` - 1
-      ][Organization == "Leidos",
+      ][Organization == "Boundless Bio",
         `Year End` := NA_real_]
 }
 
@@ -92,17 +90,17 @@ XP_plot <- ggplot(XP) +
                       colour = Organization),
                  lineend = "round",
                  size = 5) +
-  ylim(-1, -6.5) +
-  scale_x_continuous(breaks = c(2009,2013,2014,2016,2019,2020,2021,2022),
+  ylim(-0.5, -7.5) +
+  scale_x_continuous(breaks = c(2009,2013,2014,2016,2019,2020,2021,2022,2023),
                      labels = 
                        c(as.character(
-                         c(2009,2013,2014,2016,2019,2020,2021)
+                         c(2009,2013,2014,2016,2019,2020,2021,2022)
                          ),
                          "Present")) +
   scale_colour_manual(values = org_colors) +
   theme(axis.title = element_blank(),
         axis.text.y = element_blank(), 
-        axis.ticks.y = element_blank())
+        axis.ticks.y = element_blank()) 
 
 p <- ggplotly(XP_plot,
               tooltip = c("text","group","Start","End"))  %>% 
