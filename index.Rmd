@@ -60,7 +60,7 @@ Here is a quick rundown of my educational and employment background, feel free t
 
 ```{r, out.width = "100%"}
 shorten <- function(subz, xp_dt){
-  xp_dt[, YS := `Year Start` + subz
+  xp_dt[, YS := Year + subz
       ][, YE := `Year End` - subz
       ][ YE > YS
       # ][Organization %in% c(
