@@ -96,7 +96,23 @@ org_colors <-
 </div>
 
 <div class="column-right">
-### 2022 to Present
+### 2024
+</div>
+
+#### Principal Scientist Bionformatics, Translational Lead
+<details>
+
+<Summary> --- </Summary>
+
+* Directly supervise a small team to coordinate, plan, and support Translational Research projects and data analysis.
+* Guide research and clinical strategy via analyses supporting biomarker identification, drug target selection, drug candidate validation, and patient selection.
+
+</details>
+
+<br2>
+
+<div class="column-right">
+### 2022 to 2024
 </div>
 
 #### Senior Scientist Bionformatics, Translational Lead
@@ -105,8 +121,8 @@ org_colors <-
 <Summary> --- </Summary>
 
 * Develop pipelines, applications, and statistical models for data analysis and visualization.
-* Coordinate with translational scientists to plan, execute, and analyze experiments
-utilizing diverse assays and methodologies in support of early drug development.
+* Support POTENTIATE and STARMAP clinical programs from early stage discovery to ongoing clinical demands.
+* Coordinate with translational scientists to plan, execute, and analyze experiments.
 * Support business development efforts via clear visualization and communication of
 scientific concepts to non-scientific stakeholders.
 * Improve departmental efficiency and inter-departmental communication via the

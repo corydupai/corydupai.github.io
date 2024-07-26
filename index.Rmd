@@ -44,7 +44,8 @@ org_colors <-
     "University of Texas" = "#BF5700",
     "Genentech" = "#005596",
     "Leidos" = "#850F88",
-    "Boundless Bio" = "#BF5700")
+    "Boundless Bio" = "#BF5700",
+    "Boundless Bio (Principal Scientist)" = "#BF5700")
 
 ```
 
@@ -62,11 +63,11 @@ shorten <- function(subz, xp_dt){
   xp_dt[, YS := `Year Start` + subz
       ][, YE := `Year End` - subz
       ][ YE > YS
-      ][Organization %in% c(
-        "Boundless Bio",
-        "University of Texas"), 
-        `Year End` := `Year End` - 1
-      ][Organization == "Boundless Bio",
+      # ][Organization %in% c(
+      #   "Boundless Bio",
+      #   "University of Texas"), 
+      #   `Year End` := `Year End` - 1
+      ][Organization == "Boundless Bio" & `Year End` == 2025,
         `Year End` := NA_real_]
 }
 
@@ -82,7 +83,7 @@ XP[, Organization := fct_inorder(Organization)]
 XP_plot <- ggplot(XP) +
    geom_segment( aes(  
      group = Organization,
-                      text = Event,
+     text = Event,
      Start = `Year Start`,
                        End = `Year End`,
                        x = YS, xend = YE, 
@@ -90,11 +91,11 @@ XP_plot <- ggplot(XP) +
                       colour = Organization),
                  lineend = "round",
                  size = 5) +
-  ylim(-0.5, -7.5) +
-  scale_x_continuous(breaks = c(2009,2013,2014,2016,2019,2020,2021,2022,2023),
+  ylim(-0.5, -8.5) +
+  scale_x_continuous(breaks = c(2009,2013,2014,2016,2019,2020,2021,2022,2023,2024,2025),
                      labels = 
                        c(as.character(
-                         c(2009,2013,2014,2016,2019,2020,2021,2022)
+                         c(2009,2013,2014,2016,2019,2020,2021,2022,2023,2024)
                          ),
                          "Present")) +
   scale_colour_manual(name = "",
